@@ -17,9 +17,8 @@ public class ParkingSpot {
     private String number;
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal area;
-    @Column(nullable = false)
-    private boolean occupied;
+   
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "apartment_id", nullable = false)
+    @JoinColumn(name = "apartment_id", nullable = true)// Parkingspot may not be linked to apartment
     private Apartment apartment;
 }

@@ -7,14 +7,18 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Table(name = "apartments")
+@Table(name = "apartments",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = {"number", "building_id"})
+        }
+)
 @Getter
 @Setter
 public class Apartment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String number;
     @Column(nullable = false)
     private Integer floor;
@@ -22,8 +26,12 @@ public class Apartment {
     private BigDecimal area;
     @Column(nullable = false, precision = 5, scale = 2)
     private BigDecimal participationPercentage;
-    @Column(nullable = false)
-    private boolean occupied;
+
+
     @OneToMany(mappedBy = "apartment", fetch = FetchType.LAZY)
-    private List<ParkingSpot> parkingSpots;
+    private List<ParkingSpot> parkingSpots; // List of parkingSpots
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "building_id", nullable = false)
+    private Building building;
 }
