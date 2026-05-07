@@ -23,5 +23,7 @@ public class Building {
     private Condominium condominium;
 
     @OneToMany(mappedBy = "building", fetch = FetchType.LAZY)
-    private List<Apartment> apartments; //List of apartments
+    private List<Apartment> apartments;
+
+
 }

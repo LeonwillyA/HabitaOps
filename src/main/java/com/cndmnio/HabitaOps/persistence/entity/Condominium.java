@@ -23,4 +23,5 @@ public class Condominium {
 
     @OneToMany(mappedBy = "condominium", fetch = FetchType.LAZY)
     private List<Building> buildings; // List of Buildings
+
 }

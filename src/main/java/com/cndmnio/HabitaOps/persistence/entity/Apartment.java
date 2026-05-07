@@ -27,10 +27,6 @@ public class Apartment {
     @Column(nullable = false, precision = 5, scale = 2)
     private BigDecimal participationPercentage;
 
-
-    @OneToMany(mappedBy = "apartment", fetch = FetchType.LAZY)
-    private List<ParkingSpot> parkingSpots; // List of parkingSpots
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "building_id", nullable = false)
     private Building building;
