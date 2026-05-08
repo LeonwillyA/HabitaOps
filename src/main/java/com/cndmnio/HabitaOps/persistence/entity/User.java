@@ -3,9 +3,9 @@ package com.cndmnio.HabitaOps.persistence.entity;
 
 import com.cndmnio.HabitaOps.persistence.entity.enums.Role;
 import jakarta.persistence.*;
-import lombok.*;
+        import lombok.*;
 
-import java.util.List;
+        import java.util.List;
 
 
 @Entity

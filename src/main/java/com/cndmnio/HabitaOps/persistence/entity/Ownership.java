@@ -8,6 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 public class Ownership {
+    //Aqui va la relación humana, propietario, copropietarios, inquilinos, etc
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,13 +19,7 @@ public class Ownership {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    // Puede tener depa o no
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "apartment_id", nullable = true)
-    private Apartment apartment;
-
-    // Puede tener cochera o no
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "parking_spot_id", nullable = true)
-    private ParkingSpot parkingSpot;
+    @JoinColumn(name = "property_unit_id", nullable = false)
+    private PropertyUnit propertyUnit;
 }
