@@ -34,4 +34,7 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Ownership> ownerships;
 
+    @OneToMany(mappedBy = "generatedBy", fetch = FetchType.LAZY)
+    private List<Receipt> generatedReceipts;
+
 }
