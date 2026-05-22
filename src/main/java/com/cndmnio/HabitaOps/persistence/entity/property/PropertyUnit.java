@@ -1,7 +1,9 @@
-package com.cndmnio.HabitaOps.persistence.entity;
+package com.cndmnio.HabitaOps.persistence.entity.property;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "property_units")
@@ -19,7 +21,16 @@ public class PropertyUnit {//Modelo de responsabilidad de pago
     @JoinColumn(name = "apartment_id")
     private Apartment apartment;
 
+    @Column(nullable = false)
+    private BigDecimal area;
+
+    //Para saber el porcentaje que se pagara por cada recibo
+    @Column(nullable = false, precision = 10, scale = 4)
+    private BigDecimal areaFactor;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parking_spot_id")
     private ParkingSpot parkingSpot;
+
+
 }

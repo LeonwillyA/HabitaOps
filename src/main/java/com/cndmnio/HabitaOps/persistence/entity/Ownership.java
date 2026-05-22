@@ -1,5 +1,6 @@
 package com.cndmnio.HabitaOps.persistence.entity;
 
+import com.cndmnio.HabitaOps.persistence.entity.property.PropertyUnit;
 import jakarta.persistence.*;
 import lombok.*;
 

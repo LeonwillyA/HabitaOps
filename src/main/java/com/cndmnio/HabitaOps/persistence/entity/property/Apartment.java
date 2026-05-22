@@ -1,10 +1,9 @@
-package com.cndmnio.HabitaOps.persistence.entity;
+package com.cndmnio.HabitaOps.persistence.entity.property;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Table(name = "apartments",

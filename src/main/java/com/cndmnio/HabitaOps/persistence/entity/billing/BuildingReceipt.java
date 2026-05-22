@@ -1,52 +1,42 @@
-package com.cndmnio.HabitaOps.persistence.entity;
+package com.cndmnio.HabitaOps.persistence.entity.billing;
 
+import com.cndmnio.HabitaOps.persistence.entity.property.PropertyUnit;
+import com.cndmnio.HabitaOps.persistence.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+
 
 @Entity
-@Table(name = "global_receipts")
+@Table(name = "building_receipts")
 @Getter
 @Setter
-public class GlobalReceipt {
+public class BuildingReceipt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Periodo del recibo
-    @Column(nullable = false)
-    private LocalDate period;
-
-    // Gastos generales del condominio
+    // Gastos de torre/edificio
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal potableWaterPumpMaintenance;
+    private BigDecimal buildingElectricity;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal septicTankMaintenance;
+    private BigDecimal elevatorMaintenance;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal condominiumElectricity;
+    private BigDecimal airExtractorMaintenance;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal firePumpMaintenance;
+    private BigDecimal fineAmount;//multa
 
-    @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal gardening;
-
-    @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal commonAreaWater;
-
-    // Total global
-
+    // Total torre
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal totalAmount;
 
-    // Administrador que generó el recibo global
-
+    // Administrador que generó el recibo del edificio
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "property_unit_id", nullable = false)
     private PropertyUnit propertyUnit;
@@ -55,6 +45,9 @@ public class GlobalReceipt {
     @JoinColumn(name = "generated_by_user_id", nullable = false)
     private User generatedBy;
 
-    @Column(length = 100)
-    private String generatedByNameSnapshot;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "period_id", nullable = false)
+    private Period period;
+
+
 }
