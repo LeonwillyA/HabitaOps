@@ -36,15 +36,6 @@ public class BuildingReceipt {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal totalAmount;
 
-    // Administrador que generó el recibo del edificio
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "property_unit_id", nullable = false)
-    private PropertyUnit propertyUnit;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "generated_by_user_id", nullable = false)
-    private User generatedBy;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "period_id", nullable = false)
     private Period period;

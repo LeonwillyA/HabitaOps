@@ -1,5 +1,6 @@
 package com.cndmnio.HabitaOps.persistence.entity.billing;
 
+import com.cndmnio.HabitaOps.persistence.entity.User;
 import com.cndmnio.HabitaOps.persistence.entity.property.PropertyUnit;
 import com.cndmnio.HabitaOps.persistence.entity.WaterConsumption;
 import com.cndmnio.HabitaOps.persistence.entity.enums.ReceiptStatus;
@@ -33,6 +34,11 @@ public class Receipt {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ReceiptStatus status;
+
+    //Quien hace el recibo
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "generated_by_user_id", nullable = false)
+    private User generatedBy;
 
     // Unidad/departamento al que pertenece el recibo
 
