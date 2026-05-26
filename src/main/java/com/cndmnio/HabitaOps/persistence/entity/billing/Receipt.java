@@ -9,6 +9,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "receipts")
@@ -34,6 +35,9 @@ public class Receipt {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ReceiptStatus status;
+
+    @OneToMany(mappedBy = "receipt")
+    private List<PaymentReceipt> paymentReceipts;
 
     //Quien hace el recibo
     @ManyToOne(fetch = FetchType.LAZY)

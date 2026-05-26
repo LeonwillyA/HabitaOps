@@ -17,10 +17,6 @@ public class PropertyUnit {//Modelo de responsabilidad de pago
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "apartment_id")
-    private Apartment apartment;
-
     @Column(nullable = false)
     private BigDecimal area;
 
@@ -31,6 +27,11 @@ public class PropertyUnit {//Modelo de responsabilidad de pago
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parking_spot_id")
     private ParkingSpot parkingSpot;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "apartment_id")
+    private Apartment apartment;
+
 
 
 }
