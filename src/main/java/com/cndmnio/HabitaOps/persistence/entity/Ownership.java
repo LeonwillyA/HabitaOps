@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @Table(name = "ownerships")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Ownership {
     //Aqui va la relación humana, propietario, copropietarios, inquilinos, etc
 

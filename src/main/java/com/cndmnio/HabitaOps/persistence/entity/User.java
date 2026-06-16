@@ -12,6 +12,7 @@ import jakarta.persistence.*;
 @Table(name = "users")
 @Getter
 @Setter
+@NoArgsConstructor
 public class User {
 
     @Id

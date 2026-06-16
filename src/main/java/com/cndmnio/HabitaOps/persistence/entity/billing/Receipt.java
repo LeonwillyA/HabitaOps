@@ -15,6 +15,7 @@ import java.util.List;
 @Table(name = "receipts")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Receipt {
 
     @Id

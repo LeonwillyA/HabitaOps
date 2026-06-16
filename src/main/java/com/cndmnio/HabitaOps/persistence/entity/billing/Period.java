@@ -1,7 +1,7 @@
 package com.cndmnio.HabitaOps.persistence.entity.billing;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 
 import java.math.BigDecimal;
 
@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 @Table(name = "periods")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Period {
 
     @Id

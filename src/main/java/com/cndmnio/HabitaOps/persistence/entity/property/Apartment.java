@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 )
 @Getter
 @Setter
+@NoArgsConstructor
 public class Apartment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

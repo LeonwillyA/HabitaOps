@@ -1,7 +1,5 @@
 package com.cndmnio.HabitaOps.persistence.entity.billing;
 
-import com.cndmnio.HabitaOps.persistence.entity.property.PropertyUnit;
-import com.cndmnio.HabitaOps.persistence.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,6 +10,7 @@ import java.math.BigDecimal;
 @Table(name = "global_receipts")
 @Getter
 @Setter
+@NoArgsConstructor
 public class GlobalReceipt {
 
     @Id

@@ -9,6 +9,7 @@ import java.util.List;
 @Table(name = "condominiums")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Condominium {
 
     @Id

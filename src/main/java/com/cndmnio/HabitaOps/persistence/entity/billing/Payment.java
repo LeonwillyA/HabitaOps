@@ -3,8 +3,7 @@ package com.cndmnio.HabitaOps.persistence.entity.billing;
 import com.cndmnio.HabitaOps.persistence.entity.enums.PaymentMethod;
 import com.cndmnio.HabitaOps.persistence.entity.enums.PaymentStatus;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,6 +13,7 @@ import java.util.List;
 @Table(name = "payments")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Payment {
 
     @Id

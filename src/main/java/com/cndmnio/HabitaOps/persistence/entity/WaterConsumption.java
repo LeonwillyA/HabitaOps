@@ -3,8 +3,7 @@ package com.cndmnio.HabitaOps.persistence.entity;
 import com.cndmnio.HabitaOps.persistence.entity.billing.Period;
 import com.cndmnio.HabitaOps.persistence.entity.property.PropertyUnit;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,6 +12,7 @@ import java.time.LocalDate;
 @Table(name = "water_consumption")
 @Getter
 @Setter
+@NoArgsConstructor
 public class WaterConsumption {
 
     @Id

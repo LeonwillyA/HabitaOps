@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Table(name = "property_units")
 @Getter
 @Setter
+@NoArgsConstructor
 public class PropertyUnit {//Modelo de responsabilidad de pago
     //->Conjunto cobrale / responsable - No necesariamente propiedad legal
 

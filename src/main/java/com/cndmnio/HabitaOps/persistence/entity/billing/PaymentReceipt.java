@@ -2,6 +2,7 @@ package com.cndmnio.HabitaOps.persistence.entity.billing;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 @Table(name = "payment_receipts")
 @Getter
 @Setter
+@NoArgsConstructor
 public class PaymentReceipt {
 
     @Id

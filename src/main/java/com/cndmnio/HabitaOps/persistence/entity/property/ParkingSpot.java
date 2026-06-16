@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Table(name = "parking_spots")
 @Getter
 @Setter
+@NoArgsConstructor
 public class ParkingSpot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
