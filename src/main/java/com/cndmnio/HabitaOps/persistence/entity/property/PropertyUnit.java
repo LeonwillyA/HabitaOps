@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "property_units")
@@ -25,13 +26,18 @@ public class PropertyUnit {//Modelo de responsabilidad de pago
     @Column(nullable = false, precision = 10, scale = 4)
     private BigDecimal areaFactor;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "parking_spot_id")
-    private ParkingSpot parkingSpot;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private PropertyUnitStatus status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "apartment_id")
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "apartment_id", unique = true)
     private Apartment apartment;
+
+    @OneToMany(mappedBy = "propertyUnit")
+    private List<ParkingSpot> parkingSpots;
+
 
 
 
