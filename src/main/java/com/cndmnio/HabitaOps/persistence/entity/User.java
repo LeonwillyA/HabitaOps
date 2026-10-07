@@ -26,11 +26,18 @@ public class User {
     private String email;
 
     @Column(nullable = false)
+    private String phoneNumber;
+
+    @Column(nullable = false)
     private String password;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+
+    // Saber si sigue con nosotros
+    @Column(nullable = false)
+    private boolean active;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Ownership> ownerships;

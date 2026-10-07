@@ -1,5 +1,6 @@
 package com.cndmnio.HabitaOps.persistence.entity.property;
 
+import com.cndmnio.HabitaOps.persistence.entity.enums.PropertyUnitStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,9 +23,13 @@ public class PropertyUnit {//Modelo de responsabilidad de pago
     @Column(nullable = false)
     private BigDecimal area;
 
-    //Para saber el porcentaje que se pagara por cada recibo
+    // Factor de participación dentro del Building (gastos de torre)
     @Column(nullable = false, precision = 10, scale = 4)
-    private BigDecimal areaFactor;
+    private BigDecimal buildingAreaFactor;
+
+    // Factor de participación dentro del Condominium (gastos generales)
+    @Column(nullable = false, precision = 10, scale = 4)
+    private BigDecimal condominiumAreaFactor;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

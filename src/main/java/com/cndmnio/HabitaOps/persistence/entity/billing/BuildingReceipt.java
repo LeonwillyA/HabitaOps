@@ -1,13 +1,20 @@
 package com.cndmnio.HabitaOps.persistence.entity.billing;
 
+import com.cndmnio.HabitaOps.persistence.entity.property.Building;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 
 @Entity
-@Table(name = "building_receipts")
+@Table(
+        name = "building_receipts",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = {"building_id", "period_id"})
+        }
+)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -38,6 +45,17 @@ public class BuildingReceipt {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "period_id", nullable = false)
     private Period period;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "building_id", nullable = false)
+    private Building building;
+
+    @OneToMany(
+            mappedBy = "buildingReceipt",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<BuildingReceiptExtraordinary> extraordinaryExpenses;
 
 
 }

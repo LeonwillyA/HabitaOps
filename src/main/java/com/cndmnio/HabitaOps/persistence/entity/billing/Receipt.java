@@ -24,8 +24,18 @@ public class Receipt {
 
     // Totales y estado final
 
+    // Monto bruto del recibo (sin descontar el creditBalance).
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal grossAmount;
+
+    // Monto a pagar (neto): grossAmount descontando el creditBalance.
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal totalAmount;
+
+    // Saldo a favor de la unidad ligado a este recibo. No forma parte del totalAmount
+    // ni de lo cobrado vía Payment; sirve para devoluciones (gestión manual).
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal creditBalance = BigDecimal.ZERO;
 
     @Column(nullable = false)
     private LocalDate issueDate;
@@ -59,15 +69,13 @@ public class Receipt {
 
     // Componentes internos del recibo
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "global_receipt_id", nullable = false)
     private GlobalReceipt globalReceipt;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "building_receipt_id", nullable = false)
     private BuildingReceipt buildingReceipt;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "water_consumption_id", nullable = false)
-    private WaterConsumption waterConsumption;
+
 }

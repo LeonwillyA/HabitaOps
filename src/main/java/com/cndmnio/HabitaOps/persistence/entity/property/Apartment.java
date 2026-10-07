@@ -24,8 +24,6 @@ public class Apartment {
     private Integer floor;
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal area;
-    @Column(nullable = false, precision = 5, scale = 2)
-    private BigDecimal participationPercentage;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "building_id", nullable = false)

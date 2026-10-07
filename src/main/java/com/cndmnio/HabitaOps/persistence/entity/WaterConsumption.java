@@ -9,12 +9,19 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "water_consumption")
+@Table(
+        name = "water_consumption",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        columnNames = {"property_unit_id", "period_id"}
+                )
+        }
+)
 @Getter
 @Setter
 @NoArgsConstructor
 public class WaterConsumption {
-
+    //Valores congelados al momento de emisión: m3Consumed, previousReading y currentReading;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,6 +38,7 @@ public class WaterConsumption {
     @Column(nullable = false)
     private LocalDate readingDate;
 
+    //Un solo propertyUnit va a tener varias mediciones de consumo de agua durante toda su existencia
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "property_unit_id", nullable = false)
     private PropertyUnit propertyUnit;
@@ -39,4 +47,5 @@ public class WaterConsumption {
     @JoinColumn(name = "period_id", nullable = false)
     private Period period;
 
+    //Aqui no hay delete, solo existiria Update
 }

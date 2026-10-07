@@ -35,12 +35,10 @@ public class Ownership {
     @Column
     private LocalDate endDate;
 
-    // tipo de relación
+    // Tipo de relación (OWNER, TENANT, CO-OWNER )
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private OwnershipType type;
 
-    // opcional pero MUY útil
-    @Column(nullable = false)
-    private boolean active;
+
 }

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 
 @Entity
@@ -42,10 +43,15 @@ public class GlobalReceipt {
     private BigDecimal totalAmount;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "period_id", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "period_id", nullable = false, unique = true)
     private Period period;
 
 
-
+    @OneToMany(
+            mappedBy = "globalReceipt",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<GlobalReceiptExtraordinary> extraordinaryExpenses;
 }

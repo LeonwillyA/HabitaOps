@@ -10,7 +10,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "payments")
+@Table(name = "payments",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"bank_name", "operation_number"}))
 @Getter
 @Setter
 @NoArgsConstructor
@@ -31,11 +32,11 @@ public class Payment {
     private LocalDate paymentDate;
 
     //Nombre del banco de donde se hace la transferencia
-    @Column(length = 100)
+    @Column(length = 100, nullable = false)
     private String bankName;
 
     //Numero de operacion que indica el voucher
-    @Column(length = 100)
+    @Column(length = 100, nullable = false)
     private String operationNumber;
 
     // Evidencia (imagen/pdf), se guardar la direccion de donde se guarda la imagen, es malo guardar la imagen en la misma BD
@@ -45,6 +46,7 @@ public class Payment {
 
     //Metodo de pago
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private PaymentMethod paymentMethod;
 
     // Estado de validación
