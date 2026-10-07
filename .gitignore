@@ -49,3 +49,10 @@ Thumbs.db
 
 # Java
 *.class
+
+#Modo trabajo interno
+application-dev.properties
+
+
+# Notas de trabajo con el asistente
+NOTAS.md
