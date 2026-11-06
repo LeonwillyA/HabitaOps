@@ -53,7 +53,7 @@ public class PropertyUnitService {
                         "PropertyUnit no encontrada: " + propertyUnitId));
         if (unit.getStatus() != PropertyUnitStatus.ACTIVE) {
             throw new IllegalStateException(
-                    "La PropertyUnit " + propertyUnitId + " no está ACTIVOA (status = "
+                    "La PropertyUnit " + propertyUnitId + " no está ACTIVA (status = "
                             + unit.getStatus() + "): las unidades cerradas no se recalculan.");
         }
         Condominium condominium = condominiumOf(unit);

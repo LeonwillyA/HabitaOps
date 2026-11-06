@@ -91,7 +91,7 @@ BR-R-001: Todo Receipt debe pertenecer a una PropertyUnit.
 BR-R-002: Todo Receipt debe pertenecer a un Period.
 BR-R-003: Solo puede existir un Receipt VIGENTE por combinación de PropertyUnit y Period. (Vigente = status distinto de VOIDED)
 BR-R-004: Todo Receipt debe estar asociado a un GlobalReceipt.
-BR-R-005: Todo Receipt debe estar asociado a un BuildingReceipt.
+BR-R-005: Todo Receipt debe estar asociado a un BuildingReceipt, salvo las unidades sin Building (solo ParkingSpot), donde es nulo.
 BR-R-006: El totalAmount y el grossAmount del Receipt deben ser mayores o iguales que cero.
 BR-R-007: La fecha de vencimiento (dueDate) debe ser igual o posterior a la fecha de emisión (issueDate).
 BR-R-008: Todo Receipt debe tener un usuario generador asociado.

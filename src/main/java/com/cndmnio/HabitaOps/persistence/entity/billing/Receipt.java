@@ -73,8 +73,9 @@ public class Receipt {
     @JoinColumn(name = "global_receipt_id", nullable = false)
     private GlobalReceipt globalReceipt;
 
+    // Nulo cuando la unidad no tiene Building (solo ParkingSpot): no paga prorrata de torre (D16).
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "building_receipt_id", nullable = false)
+    @JoinColumn(name = "building_receipt_id")
     private BuildingReceipt buildingReceipt;
 
 
