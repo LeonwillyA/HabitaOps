@@ -39,7 +39,7 @@ public class Payment {
     @Column(length = 100, nullable = false)
     private String operationNumber;
 
-    // Evidencia (imagen/pdf), se guardar la direccion de donde se guarda la imagen, es malo guardar la imagen en la misma BD
+    // Evidencia (JPG/PNG), se guardar la direccion de donde se guarda la imagen, es malo guardar la imagen en la misma BD
 
     @Column(nullable = false, length = 500)
     private String proofFileUrl;

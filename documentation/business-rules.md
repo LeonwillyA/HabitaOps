@@ -113,6 +113,15 @@ BR-PY-005: Un Payment solo afecta a los recibos cuando su status es APPROVED. Mi
 BR-PY-006: Un Payment se aplica a los recibos de la unidad del más antiguo al más reciente.
 BR-PY-007: El proofFileUrl solo almacena la ruta del comprobante. No es único y no se usa para detectar duplicados.
 BR-PY-008: No se registra quién realiza el pago. Puede pagar un tercero ajeno a la unidad; lo único que importa es a qué PropertyUnit corresponde el pago.
+BR-PY-009: El comprobante (proofFileUrl) debe ser una imagen. Solo se aceptan los formatos JPG y PNG. Otros formatos (PDF, Word, Excel, PPT) no se aceptan; si el usuario tiene otro formato, se le indica que lo envíe por WhatsApp.
+BR-PY-010: La validación de legibilidad del comprobante es manual, a cargo del administrador (ADMIN). Si la imagen es borrosa o ilegible, el Payment se rechaza (REJECTED) y se solicita un nuevo comprobante.
+BR-PY-011: La validación del comprobante es manual, a cargo de un administrador (ADMIN). No es automática.
+BR-PY-012: El estado de validación de un Payment sigue el flujo PENDING_VALIDATION → APPROVED o REJECTED. Un Payment nuevo inicia en PENDING_VALIDATION.
+BR-PY-013: Al registrar un Payment, el comprobante se guarda en uploads/tmp/ con nombre único (UUID). La ruta se almacena en proofFileUrl.
+BR-PY-014: Al aprobar, el comprobante se mueve a uploads/approved/ y se actualiza proofFileUrl.
+BR-PY-015: Al rechazar, el comprobante se mueve a uploads/rejected/ y se actualiza proofFileUrl.
+BR-PY-016: Si el movimiento falla, el archivo se queda en tmp/, se registra el error, y no se actualiza proofFileUrl. Se reintenta después.
+BR-PY-017: Los aprobados se guardan 20 años. Los rechazados se borran a los 30 días.
 
 
 ## PaymentReceipt
